@@ -1,5 +1,3 @@
-package JogoDaVelha;
-
 public class Tabuleiro {
     public static void mostrar(char[] tabuleiro) {
         System.out.println("___________________");
