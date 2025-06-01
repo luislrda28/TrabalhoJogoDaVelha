@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class joguinho {
     public static void main(String[] args) {
@@ -14,13 +14,22 @@ public class joguinho {
         do {
             char[] tabuleiro = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
             int jogadorAtual = random.nextInt(2);
-            System.out.println(jogadorAtual == 0 ? "Jogador 1 começa!" : "Computador começa!");
+            if (jogadorAtual == 0) {
+                System.out.println("Jogador 1 começa!");
+            } else {
+                System.out.println("Computador começa!");
+            }
 
             Tabuleiro.mostrar(tabuleiro);
 
             System.out.print("Jogador 1, escolha seu símbolo (X/O): ");
             char simbolo1 = scanner.next().toUpperCase().charAt(0);
-            char simbolo2 = (simbolo1 == 'X') ? 'O' : 'X';
+            char simbolo2;
+            if (simbolo1 == 'X') {
+                simbolo2 = 'O';
+                } else {
+                simbolo2 = 'X';
+            }
 
             boolean jogoAtivo = true;
             int jogadas = 0;
