@@ -13,11 +13,12 @@ public class Utils {
                (t[2] == s && t[4] == s && t[6] == s);
     }
 
-    public static int jogadaHumano(char[] tabuleiro, Scanner scanner, char simbolo) {
+    public static int jogadaHumano(char[] tabuleiro, char simbolo) {
         int posicao;
+        Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.print("Jogador 1, escolha uma posição (1-9): ");
-            posicao = scanner.nextInt() - 1;
+            System.out.print("Jogador 1, escolha uma posição de (1-9): ");
+            posicao = sc.nextInt() - 1;
             if (posicao >= 0 && posicao < 9 && tabuleiro[posicao] == ' ') {
                 tabuleiro[posicao] = simbolo;
                 return 1;
@@ -27,10 +28,12 @@ public class Utils {
         }
     }
 
-    public static int jogadaComputador(char[] tabuleiro, Random random, char simbolo) {
+    public static int jogadaComputador(char[] tabuleiro, char simbolo) {
         int posicao;
+        Random rnd = new Random();
+
         do {
-            posicao = random.nextInt(9);
+            posicao = rnd.nextInt(9);
         } while (tabuleiro[posicao] != ' ');
         tabuleiro[posicao] = simbolo;
         System.out.println("Jogador 2 (computador) jogou na posição " + (posicao + 1));

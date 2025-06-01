@@ -36,7 +36,7 @@ public class joguinho {
 
             while (jogoAtivo && jogadas < 9) {
                 if (jogadorAtual == 0) {
-                    jogadas += Utils.jogadaHumano(tabuleiro, scanner, simbolo1);
+                    jogadas += Utils.jogadaHumano(tabuleiro, simbolo1);
                     Tabuleiro.mostrar(tabuleiro);
                     if (Utils.verificarVencedor(tabuleiro, simbolo1)) {
                         System.out.println("Jogador 1 venceu!");
@@ -44,7 +44,7 @@ public class joguinho {
                         break;
                     }
                 } else {
-                    jogadas += Utils.jogadaComputador(tabuleiro, random, simbolo2);
+                    jogadas += Utils.jogadaComputador(tabuleiro, simbolo2);
                     Tabuleiro.mostrar(tabuleiro);
                     if (Utils.verificarVencedor(tabuleiro, simbolo2)) {
                         System.out.println("Jogador 2 (computador) venceu!");
@@ -64,6 +64,11 @@ public class joguinho {
 
             System.out.print("Deseja jogar novamente? (S/N): ");
             jogarNovamente = scanner.next().toUpperCase().charAt(0);
+            
+            if (jogarNovamente != 'S' && jogarNovamente != 'N') {
+                System.out.println("Opção inválida, encerrando o jogo.");
+                jogarNovamente = 'N';
+            }
 
         } while (jogarNovamente == 'S');
 
