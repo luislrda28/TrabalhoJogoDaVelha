@@ -3,14 +3,17 @@ import java.util.Random;
 
 public class Utils {
     public static boolean verificarVencedor(char[] t, char s) {
-        return (t[0] == s && t[1] == s && t[2] == s) ||
-               (t[3] == s && t[4] == s && t[5] == s) ||
-               (t[6] == s && t[7] == s && t[8] == s) ||
-               (t[0] == s && t[3] == s && t[6] == s) ||
-               (t[1] == s && t[4] == s && t[7] == s) ||
-               (t[2] == s && t[5] == s && t[8] == s) ||
-               (t[0] == s && t[4] == s && t[8] == s) ||
-               (t[2] == s && t[4] == s && t[6] == s);
+        if ((t[0] == s && t[1] == s && t[2] == s) ||
+            (t[3] == s && t[4] == s && t[5] == s) ||
+            (t[6] == s && t[7] == s && t[8] == s) ||
+            (t[0] == s && t[3] == s && t[6] == s) ||
+            (t[1] == s && t[4] == s && t[7] == s) ||
+            (t[2] == s && t[5] == s && t[8] == s) ||
+            (t[0] == s && t[4] == s && t[8] == s) ||
+            (t[2] == s && t[4] == s && t[6] == s)) {
+            return true;
+        }
+        return false;
     }
 
     public static int jogadaHumano(char[] tabuleiro, char simbolo) {
